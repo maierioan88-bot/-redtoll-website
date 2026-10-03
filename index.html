@@ -36,7 +36,6 @@
       min-height: 100vh;
     }
 
-    /* Hero section with the panoramic banner background */
     .hero-wrapper {
       width: 100%;
       background: linear-gradient(rgba(9, 11, 14, 0.5), var(--bg-dark)), url('images/hero_banner.png') center/cover no-repeat;
@@ -143,6 +142,8 @@
       overflow: hidden;
       aspect-ratio: 16 / 9;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      cursor: pointer;
+      position: relative;
     }
 
     .screenshot-card img {
@@ -150,11 +151,88 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
     .screenshot-card:hover img {
       transform: scale(1.04);
+      filter: brightness(1.1);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 7, 10, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-img-wrapper {
+      max-width: 88vw;
+      max-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img-wrapper img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--border-color);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(20, 24, 31, 0.7);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      font-size: 2rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--accent-red);
+      border-color: var(--accent-hover);
+    }
+
+    .lightbox-close {
+      top: 25px;
+      right: 25px;
+      font-size: 1.5rem;
+    }
+
+    .lightbox-prev {
+      left: 30px;
+    }
+
+    .lightbox-next {
+      right: 30px;
     }
 
     footer {
@@ -186,7 +264,6 @@
 </head>
 <body>
 
-  <!-- Header with Banner Background and Centered Logo -->
   <header class="hero-wrapper">
     <div class="hero-content">
       <img src="images/logo.png" alt="Red Toll Logo" class="game-logo">
@@ -205,35 +282,45 @@
     <main>
       <h2 class="section-title">In-Game Footage</h2>
       <div class="gallery-grid">
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(0)">
           <img src="images/1.png" alt="Red Toll Gameplay 1">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(1)">
           <img src="images/2.png" alt="Red Toll Gameplay 2">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(2)">
           <img src="images/3.png" alt="Red Toll Gameplay 3">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(3)">
           <img src="images/4.png" alt="Red Toll Gameplay 4">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(4)">
           <img src="images/5.png" alt="Red Toll Gameplay 5">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(5)">
           <img src="images/6.png" alt="Red Toll Gameplay 6">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(6)">
           <img src="images/7.png" alt="Red Toll Gameplay 7">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(7)">
           <img src="images/8.png" alt="Red Toll Gameplay 8">
         </div>
-        <div class="screenshot-card">
+        <div class="screenshot-card" onclick="openLightbox(8)">
           <img src="images/9.png" alt="Red Toll Gameplay 9">
         </div>
       </div>
     </main>
+  </div>
+
+  <!-- Fullscreen Modal Container -->
+  <div id="lightbox" class="lightbox-modal" onclick="onBackdropClick(event)">
+    <button class="lightbox-btn lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-btn lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-image" src="" alt="Fullscreen Screenshot">
+    </div>
+    <button class="lightbox-btn lightbox-next" onclick="changeImage(1)">&#10095;</button>
   </div>
 
   <footer>
@@ -243,6 +330,54 @@
       <a href="#">Privacy Policy</a>
     </div>
   </footer>
+
+  <script>
+    const images = [
+      'images/1.png',
+      'images/2.png',
+      'images/3.png',
+      'images/4.png',
+      'images/5.png',
+      'images/6.png',
+      'images/7.png',
+      'images/8.png',
+      'images/9.png'
+    ];
+
+    let currentIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImage.src = images[currentIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(step) {
+      currentIndex = (currentIndex + step + images.length) % images.length;
+      lightboxImage.src = images[currentIndex];
+    }
+
+    function onBackdropClick(e) {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrapper')) {
+        closeLightbox();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeImage(-1);
+      if (e.key === 'ArrowRight') changeImage(1);
+    });
+  </script>
 
 </body>
 </html>
