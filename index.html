@@ -12,8 +12,6 @@
       --card-bg: #14181f;
       --accent-red: #b91c1c;
       --accent-hover: #dc2626;
-      --steam-blue: #1b2838;
-      --steam-hover: #2a475e;
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --border-color: #272d37;
@@ -38,7 +36,7 @@
 
     .hero-wrapper {
       width: 100%;
-      background: linear-gradient(rgba(9, 11, 14, 0.5), var(--bg-dark)), url('images/hero_banner.png') center/cover no-repeat;
+      background: linear-gradient(rgba(9, 11, 14, 0.55), var(--bg-dark)), url('images/hero_banner.png') center/cover no-repeat;
       display: flex;
       justify-content: center;
       border-bottom: 1px solid var(--border-color);
@@ -67,51 +65,40 @@
       color: #e5e7eb;
       max-width: 650px;
       margin-bottom: 2.5rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.85);
     }
 
-    .cta-group {
+    .badge-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
-    .btn {
+    .badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn-steam {
-      background-color: var(--steam-blue);
-      color: #fff;
-      border: 1px solid #38536f;
-    }
-
-    .btn-steam:hover {
-      background-color: var(--steam-hover);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background-color: rgba(20, 24, 31, 0.85);
-      color: var(--text-main);
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background-color: rgba(20, 24, 31, 0.8);
       border: 1px solid var(--border-color);
-      backdrop-filter: blur(4px);
+      border-radius: 9999px;
+      backdrop-filter: blur(6px);
+      user-select: none;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--accent-red);
-      color: #fff;
-      transform: translateY(-2px);
+    .badge-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.12);
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
     }
 
     .container {
@@ -235,12 +222,72 @@
       right: 30px;
     }
 
+    /* Privacy Modal */
+    .privacy-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 7, 10, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .privacy-modal.active {
+      display: flex;
+    }
+
+    .privacy-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      max-width: 560px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+
+    .privacy-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .privacy-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .privacy-close-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent-red);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .privacy-close-btn:hover {
+      background: var(--accent-hover);
+    }
+
     footer {
       width: 100%;
       border-top: 1px solid var(--border-color);
       padding: 2.5rem 1.5rem;
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       margin-top: auto;
     }
@@ -249,16 +296,24 @@
       margin-top: 0.75rem;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
       color: var(--text-main);
+    }
+
+    .contact-badge {
+      color: var(--text-main);
+      font-weight: 500;
     }
   </style>
 </head>
@@ -269,11 +324,11 @@
       <img src="images/logo.png" alt="Red Toll Logo" class="game-logo">
       <p class="hero-tagline">A dark low-poly action-survival RPG. Purge ancient crypts, defend the Village Cross, and survive the nightly siege.</p>
 
-      <div class="cta-group">
-        <a href="https://store.steampowered.com" target="_blank" class="btn btn-steam">Wishlist on Steam</a>
-        <a href="https://youtube.com" target="_blank" class="btn btn-secondary">YouTube Devlogs</a>
-        <a href="https://reddit.com" target="_blank" class="btn btn-secondary">Reddit Community</a>
-        <a href="https://discord.com" target="_blank" class="btn btn-secondary">Discord</a>
+      <div class="badge-group">
+        <div class="badge">Steam <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">YouTube Devlogs <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">Reddit Community <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">Discord <span class="badge-tag">Coming Soon</span></div>
       </div>
     </div>
   </header>
@@ -313,7 +368,7 @@
     </main>
   </div>
 
-  <!-- Fullscreen Modal Container -->
+  <!-- Fullscreen Screenshot Modal -->
   <div id="lightbox" class="lightbox-modal" onclick="onBackdropClick(event)">
     <button class="lightbox-btn lightbox-close" onclick="closeLightbox()">&times;</button>
     <button class="lightbox-btn lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
@@ -323,11 +378,23 @@
     <button class="lightbox-btn lightbox-next" onclick="changeImage(1)">&#10095;</button>
   </div>
 
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" class="privacy-modal" onclick="onPrivacyBackdropClick(event)">
+    <div class="privacy-box">
+      <h3>Privacy Policy</h3>
+      <p>This website is an informational landing page for the indie game <strong>Red Toll</strong>.</p>
+      <p>We do not collect personal data, do not use tracking or advertising cookies, and do not store any personal user information on our servers.</p>
+      <p>If you contact us via email, your address is only used to reply to your inquiry.</p>
+      <button class="privacy-close-btn" onclick="closePrivacyModal()">Close</button>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2026 Red Toll. All rights reserved.</p>
     <div class="footer-links">
-      <a href="mailto:contact@theredtoll.com">Press & Support Contact</a>
-      <a href="#">Privacy Policy</a>
+      <a href="mailto:contact@theredtoll.com" class="contact-badge">Contact: contact@theredtoll.com</a>
+      <span>&bull;</span>
+      <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
     </div>
   </footer>
 
@@ -347,6 +414,7 @@
     let currentIndex = 0;
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
+    const privacyModal = document.getElementById('privacy-modal');
 
     function openLightbox(index) {
       currentIndex = index;
@@ -371,11 +439,31 @@
       }
     }
 
+    function openPrivacyModal() {
+      privacyModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyModal() {
+      privacyModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function onPrivacyBackdropClick(e) {
+      if (e.target === privacyModal) {
+        closePrivacyModal();
+      }
+    }
+
     document.addEventListener('keydown', function(e) {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') changeImage(-1);
-      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closePrivacyModal();
+      }
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'ArrowRight') changeImage(1);
+      }
     });
   </script>
 
