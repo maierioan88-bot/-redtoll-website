@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Toll — Official Game Site</title>
+  <meta name="description" content="Red Toll is a dark low-poly action-survival RPG featuring dungeon crawling, village defense, and brutal tactical combat.">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png" alt="Red Toll" class="nav-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+    </div>
+  </nav>
+
+  <header class="hero-wrapper">
+    <div class="hero-content">
+      <img src="images/logo.png" alt="Red Toll Logo" class="game-logo">
+      <p class="hero-tagline">A dark low-poly action-survival RPG. Purge ancient crypts, defend the Village Cross, and survive the nightly siege.</p>
+
+      <div class="badge-group">
+        <div class="badge">Steam <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">YouTube Devlogs <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">Reddit Community <span class="badge-tag">Coming Soon</span></div>
+        <div class="badge">Discord <span class="badge-tag">Coming Soon</span></div>
+      </div>
+
+      <a href="features.html" class="cta-link">Explore Game Features</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <h2 class="section-title">In-Game Footage</h2>
+      <div class="gallery-grid">
+        <div class="screenshot-card" onclick="openLightbox(0)">
+          <img src="images/1.png" alt="Red Toll Gameplay 1">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(1)">
+          <img src="images/2.png" alt="Red Toll Gameplay 2">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(2)">
+          <img src="images/3.png" alt="Red Toll Gameplay 3">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(3)">
+          <img src="images/4.png" alt="Red Toll Gameplay 4">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(4)">
+          <img src="images/5.png" alt="Red Toll Gameplay 5">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(5)">
+          <img src="images/6.png" alt="Red Toll Gameplay 6">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(6)">
+          <img src="images/7.png" alt="Red Toll Gameplay 7">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(7)">
+          <img src="images/8.png" alt="Red Toll Gameplay 8">
+        </div>
+        <div class="screenshot-card" onclick="openLightbox(8)">
+          <img src="images/9.png" alt="Red Toll Gameplay 9">
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="lightbox" class="lightbox-modal" onclick="onBackdropClick(event)">
+    <button class="lightbox-btn lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-btn lightbox-prev" onclick="changeImage(-1)" aria-label="Previous">&#10094;</button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-image" src="" alt="Fullscreen Screenshot">
+    </div>
+    <button class="lightbox-btn lightbox-next" onclick="changeImage(1)" aria-label="Next">&#10095;</button>
+  </div>
+
+  <div id="privacy-modal" class="privacy-modal" onclick="onPrivacyBackdropClick(event)">
+    <div class="privacy-box">
+      <h3>Privacy Policy</h3>
+      <p>This website is an informational landing page for the indie game <strong>Red Toll</strong>.</p>
+      <p>We do not collect personal data, do not use tracking or advertising cookies, and do not store any personal user information on our servers.</p>
+      <p>If you contact us via email, your address is only used to reply to your inquiry.</p>
+      <button class="privacy-close-btn" onclick="closePrivacyModal()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Red Toll. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:contact@theredtoll.com" class="contact-badge">Contact: contact@theredtoll.com</a>
+      <span>&bull;</span>
+      <a href="features.html">Features</a>
+      <span>&bull;</span>
+      <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
