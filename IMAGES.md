@@ -20,8 +20,12 @@ images/
     feature-gathering.png
     feature-crafting.png
     feature-cooking.png
+    skill-faith.png
+    skill-defence.png
+    skill-survival.png
     heart-of-the-game.png
 ```
+
 
 Do **not** nest another `website/` folder inside this repo.
 Upload new images into `images/` or `images/features/` — never drop them at the repo root.
