@@ -519,24 +519,26 @@ body {
 
 .lightbox-img-wrapper {
   max-width: 92vw;
-  max-height: 90vh;
+  max-height: 88vh;
   overflow: auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 0.5rem;
 }
 
 .lightbox-img-wrapper img {
-  max-width: min(100%, 1600px);
+  display: block;
+  max-width: min(92vw, 1400px);
+  max-height: 85vh;
   width: auto;
   height: auto;
-  max-height: none;
   border-radius: 8px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
   border: 1px solid var(--border-color);
   object-fit: contain;
   user-select: none;
+  background: #0a0c10;
 }
 
 .lightbox-btn {
