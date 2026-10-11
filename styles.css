@@ -343,6 +343,56 @@ body {
   filter: none;
 }
 
+.skill-path-block {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2.5rem;
+}
+
+.skill-path-block .feature-row {
+  border-bottom: none;
+  padding-bottom: 1.75rem;
+}
+
+.skill-show {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.skill-show-reverse .skill-show-media {
+  order: 2;
+}
+
+.skill-show-reverse figcaption {
+  order: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+.skill-show-media {
+  aspect-ratio: 16 / 9;
+}
+
+.skill-show-media img {
+  object-fit: cover;
+}
+
+.skill-show figcaption {
+  max-width: 28rem;
+}
+
+.skill-show figcaption .feature-kicker {
+  display: block;
+}
+
+.skill-show figcaption p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
 .feature-kicker {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -634,6 +684,22 @@ footer {
 
   .skill-system-intro {
     padding: 2.5rem 0 0.75rem;
+  }
+
+  .skill-path-block {
+    padding-bottom: 2rem;
+  }
+
+  .skill-show {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-show-reverse .skill-show-media,
+  .skill-show-reverse figcaption {
+    order: unset;
+    justify-self: stretch;
+    text-align: left;
   }
 
   .lightbox-prev {

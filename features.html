@@ -149,55 +149,88 @@
       <p>Every tree mixes <strong>active</strong> and <strong>passive</strong> ranks — Faith-cost powers with cooldowns beside lasting disciplines. Invest deep for mastery, or split points across combat, the walls, and the wilds. The dark does not wait for a perfect build.</p>
     </section>
 
-    <section class="feature-row">
-      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(0)}" aria-label="Open Faith skill tree fullscreen">
-        <img src="images/features/skill-faith.png" alt="Faith skill tree in Red Toll — Consecrated Edge and holy combat ranks">
+    <section class="skill-path-block">
+      <div class="feature-row">
+        <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox('faith', 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('faith', 0)}" aria-label="Open Faith skill tree fullscreen">
+          <img src="images/features/skill-faith.png" alt="Faith skill tree in Red Toll — Consecrated Edge and holy combat ranks">
+        </div>
+        <div class="feature-copy">
+          <p class="feature-kicker">Path of Faith</p>
+          <h2>Faith</h2>
+          <p class="feature-lead">Holy steel against corruption.</p>
+          <p>Actives burn <strong>Faith</strong> to anoint your blade, call lightning, and stagger beasts that fear the light — ranks like Consecrated Edge turning every melee hit into a sacred reckoning.</p>
+          <ul class="feature-points">
+            <li>Active holy combat with Faith cost and cooldowns</li>
+            <li>Bonus Holy Damage and stagger on corrupted foes</li>
+            <li>Rank up skills to deepen the light in the crypt</li>
+          </ul>
+        </div>
       </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Path of Faith</p>
-        <h2>Faith</h2>
-        <p class="feature-lead">Holy steel against corruption.</p>
-        <p>Actives burn <strong>Faith</strong> to anoint your blade, call lightning, and stagger beasts that fear the light — ranks like Consecrated Edge turning every melee hit into a sacred reckoning.</p>
-        <ul class="feature-points">
-          <li>Active holy combat with Faith cost and cooldowns</li>
-          <li>Bonus Holy Damage and stagger on corrupted foes</li>
-          <li>Rank up skills to deepen the light in the crypt</li>
-        </ul>
-      </div>
+      <figure class="skill-show">
+        <div class="feature-media feature-media-skill skill-show-media" role="button" tabindex="0" onclick="openSkillLightbox('faith', 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('faith', 1)}" aria-label="Open Faith skill in action fullscreen">
+          <img src="images/features/skill-faith-show.png" alt="Faith skill used in combat in Red Toll — holy power against a beast by lantern-light">
+        </div>
+        <figcaption>
+          <span class="feature-kicker">In Action</span>
+          <p>Faith is not a menu choice — it is steel and light when the dark closes in.</p>
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="feature-row feature-row-reverse">
-      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(1)}" aria-label="Open Defence skill tree fullscreen">
-        <img src="images/features/skill-defence.png" alt="Defence skill tree in Red Toll — Consecrated Cross and siege fortification ranks">
+    <section class="skill-path-block">
+      <div class="feature-row feature-row-reverse">
+        <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox('defence', 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('defence', 0)}" aria-label="Open Defence skill tree fullscreen">
+          <img src="images/features/skill-defence.png" alt="Defence skill tree in Red Toll — Consecrated Cross and siege fortification ranks">
+        </div>
+        <div class="feature-copy">
+          <p class="feature-kicker">Path of Defence</p>
+          <h2>Defence</h2>
+          <p class="feature-lead">The Cross is held with more than timber.</p>
+          <p>Drive sacred ground into the earth, slow the horde, and harden gates, walls, and towers — powers like Consecrated Cross that turn a siege night into consecrated ground.</p>
+          <ul class="feature-points">
+            <li>Sanctify zones that damage and slow the push</li>
+            <li>Empower nearby Gates, Walls, and Towers</li>
+            <li>Spend points where the courtyard will be tested</li>
+          </ul>
+        </div>
       </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Path of Defence</p>
-        <h2>Defence</h2>
-        <p class="feature-lead">The Cross is held with more than timber.</p>
-        <p>Drive sacred ground into the earth, slow the horde, and harden gates, walls, and towers — powers like Consecrated Cross that turn a siege night into consecrated ground.</p>
-        <ul class="feature-points">
-          <li>Sanctify zones that damage and slow the push</li>
-          <li>Empower nearby Gates, Walls, and Towers</li>
-          <li>Spend points where the courtyard will be tested</li>
-        </ul>
-      </div>
+      <figure class="skill-show skill-show-reverse">
+        <div class="feature-media feature-media-skill skill-show-media" role="button" tabindex="0" onclick="openSkillLightbox('defence', 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('defence', 1)}" aria-label="Open Defence skill in action fullscreen">
+          <img src="images/features/skill-defence-show.png" alt="Defence skill used in Red Toll — wards reinforcing the village walls during a siege">
+        </div>
+        <figcaption>
+          <span class="feature-kicker">In Action</span>
+          <p>Defence spends itself at the timber line — wards on the walls when the push arrives.</p>
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="feature-row">
-      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(2)}" aria-label="Open Survival skill tree fullscreen">
-        <img src="images/features/skill-survival.png" alt="Survival skill tree in Red Toll — Ascetic Labor and wilderness yield ranks">
+    <section class="skill-path-block">
+      <div class="feature-row">
+        <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox('survival', 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('survival', 0)}" aria-label="Open Survival skill tree fullscreen">
+          <img src="images/features/skill-survival.png" alt="Survival skill tree in Red Toll — Ascetic Labor and wilderness yield ranks">
+        </div>
+        <div class="feature-copy">
+          <p class="feature-kicker">Path of Survival</p>
+          <h2>Survival</h2>
+          <p class="feature-lead">Discipline feeds the village.</p>
+          <p>Passives like Ascetic Labor raise yield from trees, stone, and ore, spare tool durability, and let Holy Water ward your gear — so the week’s gathering actually pays for the next siege.</p>
+          <ul class="feature-points">
+            <li>Higher resource yield from the wilds</li>
+            <li>Harvest swings that spare tool durability</li>
+            <li>Endurance wards that keep you in the fight</li>
+          </ul>
+        </div>
       </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Path of Survival</p>
-        <h2>Survival</h2>
-        <p class="feature-lead">Discipline feeds the village.</p>
-        <p>Passives like Ascetic Labor raise yield from trees, stone, and ore, spare tool durability, and let Holy Water ward your gear — so the week’s gathering actually pays for the next siege.</p>
-        <ul class="feature-points">
-          <li>Higher resource yield from the wilds</li>
-          <li>Harvest swings that spare tool durability</li>
-          <li>Endurance wards that keep you in the fight</li>
-        </ul>
-      </div>
+      <figure class="skill-show">
+        <div class="feature-media feature-media-skill skill-show-media" role="button" tabindex="0" onclick="openSkillLightbox('survival', 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox('survival', 1)}" aria-label="Open Survival skill in action fullscreen">
+          <img src="images/features/skill-survival-show.png" alt="Survival skill used in Red Toll — endurance and field discipline under lantern-light">
+        </div>
+        <figcaption>
+          <span class="feature-kicker">In Action</span>
+          <p>Survival carries into the fight — the week’s discipline still on you when the wolves come.</p>
+        </figcaption>
+      </figure>
     </section>
 
     <section id="creed" class="feature-row">

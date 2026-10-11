@@ -23,11 +23,18 @@ images/
     skill-faith.png
     skill-defence.png
     skill-survival.png
+    skill-faith-show.png
+    skill-defence-show.png
+    skill-survival-show.png
     skill-faith-full.png
     skill-defence-full.png
     skill-survival-full.png
+    skill-faith-show-full.png
+    skill-defence-show-full.png
+    skill-survival-show-full.png
     heart-of-the-game.png
 ```
+
 
 
 

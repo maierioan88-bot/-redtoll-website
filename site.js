@@ -10,11 +10,20 @@ const images = [
   'images/9.png'
 ];
 
-const skillImages = [
-  'images/features/skill-faith-full.png',
-  'images/features/skill-defence-full.png',
-  'images/features/skill-survival-full.png'
-];
+const skillGalleries = {
+  faith: [
+    'images/features/skill-faith-full.png',
+    'images/features/skill-faith-show-full.png'
+  ],
+  defence: [
+    'images/features/skill-defence-full.png',
+    'images/features/skill-defence-show-full.png'
+  ],
+  survival: [
+    'images/features/skill-survival-full.png',
+    'images/features/skill-survival-show-full.png'
+  ]
+};
 
 let currentIndex = 0;
 let activeImages = images;
@@ -31,8 +40,10 @@ function openLightbox(index, list) {
   document.body.style.overflow = 'hidden';
 }
 
-function openSkillLightbox(index) {
-  openLightbox(index, skillImages);
+function openSkillLightbox(path, index) {
+  const gallery = skillGalleries[path];
+  if (!gallery) return;
+  openLightbox(index || 0, gallery);
 }
 
 function closeLightbox() {
