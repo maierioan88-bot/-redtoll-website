@@ -10,17 +10,29 @@ const images = [
   'images/9.png'
 ];
 
+const skillImages = [
+  'images/features/skill-faith-full.png',
+  'images/features/skill-defence-full.png',
+  'images/features/skill-survival-full.png'
+];
+
 let currentIndex = 0;
+let activeImages = images;
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const privacyModal = document.getElementById('privacy-modal');
 
-function openLightbox(index) {
+function openLightbox(index, list) {
   if (!lightbox || !lightboxImage) return;
+  activeImages = list || images;
   currentIndex = index;
-  lightboxImage.src = images[currentIndex];
+  lightboxImage.src = activeImages[currentIndex];
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+function openSkillLightbox(index) {
+  openLightbox(index, skillImages);
 }
 
 function closeLightbox() {
@@ -30,9 +42,9 @@ function closeLightbox() {
 }
 
 function changeImage(step) {
-  if (!lightboxImage) return;
-  currentIndex = (currentIndex + step + images.length) % images.length;
-  lightboxImage.src = images[currentIndex];
+  if (!lightboxImage || !activeImages.length) return;
+  currentIndex = (currentIndex + step + activeImages.length) % activeImages.length;
+  lightboxImage.src = activeImages[currentIndex];
 }
 
 function onBackdropClick(e) {

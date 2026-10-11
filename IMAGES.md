@@ -23,8 +23,12 @@ images/
     skill-faith.png
     skill-defence.png
     skill-survival.png
+    skill-faith-full.png
+    skill-defence-full.png
+    skill-survival-full.png
     heart-of-the-game.png
 ```
+
 
 
 Do **not** nest another `website/` folder inside this repo.

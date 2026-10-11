@@ -150,7 +150,7 @@
     </section>
 
     <section class="feature-row">
-      <div class="feature-media">
+      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(0)}" aria-label="Open Faith skill tree fullscreen">
         <img src="images/features/skill-faith.png" alt="Faith skill tree in Red Toll — Consecrated Edge and holy combat ranks">
       </div>
       <div class="feature-copy">
@@ -167,7 +167,7 @@
     </section>
 
     <section class="feature-row feature-row-reverse">
-      <div class="feature-media">
+      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(1)}" aria-label="Open Defence skill tree fullscreen">
         <img src="images/features/skill-defence.png" alt="Defence skill tree in Red Toll — Consecrated Cross and siege fortification ranks">
       </div>
       <div class="feature-copy">
@@ -184,7 +184,7 @@
     </section>
 
     <section class="feature-row">
-      <div class="feature-media">
+      <div class="feature-media feature-media-skill" role="button" tabindex="0" onclick="openSkillLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSkillLightbox(2)}" aria-label="Open Survival skill tree fullscreen">
         <img src="images/features/skill-survival.png" alt="Survival skill tree in Red Toll — Ascetic Labor and wilderness yield ranks">
       </div>
       <div class="feature-copy">
@@ -224,6 +224,15 @@
     </section>
 
   </main>
+
+  <div id="lightbox" class="lightbox-modal" onclick="onBackdropClick(event)">
+    <button class="lightbox-btn lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-btn lightbox-prev" onclick="changeImage(-1)" aria-label="Previous">&#10094;</button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-image" src="" alt="Skill tree screenshot">
+    </div>
+    <button class="lightbox-btn lightbox-next" onclick="changeImage(1)" aria-label="Next">&#10095;</button>
+  </div>
 
   <div id="privacy-modal" class="privacy-modal" onclick="onPrivacyBackdropClick(event)">
     <div class="privacy-box">
